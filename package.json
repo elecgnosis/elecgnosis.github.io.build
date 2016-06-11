@@ -1,0 +1,23 @@
+{
+  "name": "elecgnosis",
+  "version": "1.0.0",
+  "description": "Bookmarks, probably.",
+  "main": "app.js",
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^1.13.1"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elecgnosis/elecgnosis.github.io.git"
+  },
+  "author": "Dan Lopez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elecgnosis/elecgnosis.github.io/issues"
+  },
+  "homepage": "https://github.com/elecgnosis/elecgnosis.github.io#readme"
+}
