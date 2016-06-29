@@ -18,6 +18,11 @@ module.exports = {
     path: __dirname + "/pub",
     filename: "bundle.js"
   },
+  module: {
+      loaders: [
+          { test: /\.css$/, loader: "style!css"}
+      ]
+  },
   devtool: 'inline-source-map',
   watch: true,
   devServer: {

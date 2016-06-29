@@ -4,12 +4,14 @@
   "description": "Bookmarks, probably.",
   "main": "app.js",
   "dependencies": {
-    
+
   },
   "devDependencies": {
     "grunt": "^1.0.1",
     "grunt-mocha": "^1.0.2",
-    "webpack": "^1.13.1"
+    "webpack": "^1.13.1",
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1"
   },
   "scripts": {
     "test": "test"
