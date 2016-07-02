@@ -11,21 +11,49 @@
  * devServer: Configuration options for the webpack-dev-server.
  * contentBase: Tells the webpack-dev-server which folder to serve assets from.
  */
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var autoprefixer = require('autoprefixer');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+
 module.exports = {
   entry: "./app.js",
 
   output: {
-    path: __dirname + "/pub",
+    path: __dirname + "/public",
     filename: "bundle.js"
   },
-  module: {
-      loaders: [
-          { test: /\.css$/, loader: "style!css"}
-      ]
-  },
   devtool: 'inline-source-map',
-  watch: true,
+  module: {
+    /**
+     * Loader code inspired by Foxandxss at GitHub.com/preboot/angular-webpack
+     */
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: /node_modules/
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
+      //loader: "style!css"
+    }, {
+      test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
+      loader: 'file'
+    }, {
+      test: /\.html$/,
+      loader: 'raw'
+    }]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'I Am Daniel Lopez',
+      cache: true,
+      inject: 'body',
+      template: './source/html/index.html'
+    }),
+    new ExtractTextPlugin('[name].[hash].css')
+  ],
   devServer: {
-      contentBase: 'pub/',
+    contentBase: 'pub/',
   },
 }
