@@ -1,1 +1,1 @@
-module.exports = '<br>This line comes from another file.';
+module.exports = '<br>Check the console to see if HMR is working...';

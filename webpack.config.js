@@ -11,31 +11,34 @@
  * devServer: Configuration options for the webpack-dev-server.
  * contentBase: Tells the webpack-dev-server which folder to serve assets from.
  */
+var path = require('path');
+var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-var autoprefixer = require('autoprefixer');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: "./app.js",
+  resolve: {
+    root: [ __dirname + path.sep + 'source' ]
+  },
+
+  entry: [
+    './app.js',
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8080/'
+  ],
 
   output: {
-    path: __dirname + "/public",
+    path: path.resolve(__dirname + "/public"),
     filename: "bundle.js"
   },
   devtool: 'inline-source-map',
   module: {
-    /**
-     * Loader code inspired by Foxandxss at GitHub.com/preboot/angular-webpack
-     */
     loaders: [{
       test: /\.js$/,
       loader: 'babel',
       exclude: /node_modules/
     }, {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss')
-      //loader: "style!css"
+      test: /\.scss$/,
+      loader: 'style-loader!css-loader!autoprefixer!sass-loader'
     }, {
       test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
       loader: 'file'
@@ -45,15 +48,20 @@ module.exports = {
     }]
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'I Am Daniel Lopez',
-      cache: true,
-      inject: 'body',
-      template: './source/html/index.html'
-    }),
-    new ExtractTextPlugin('[name].[hash].css')
+      new HtmlWebpackPlugin({
+        title: 'I Am Daniel Lopez',
+        path: 'public',
+        cache: false,
+        inject: 'body',
+        template: './source/html/index.html'
+    })
   ],
-  devServer: {
-    contentBase: 'pub/',
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
   },
+  devServer: {
+    contentBase: 'public/',
+    historyApiFallback: true
+  }
 }
