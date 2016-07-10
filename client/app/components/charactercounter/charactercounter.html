@@ -1,0 +1,11 @@
+<navbar></navbar>
+<h1>{{ $ctrl.name }}</h1>
+<div>
+  <div>
+    Character count: {{ characterInput.length }}
+  </div>
+  <div>
+    <input ng-model="characterInput" />
+    <button ng-click="characterInput = ''">Clear</button>
+  </div>
+</div>
