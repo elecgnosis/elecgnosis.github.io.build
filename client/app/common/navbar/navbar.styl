@@ -1,13 +1,48 @@
 @import '../common'
 
-.navbar
-  height 100%
-  background-color green
-  padding 1rem
-  .nav-links
-  .logo
-    color lemon !important
-  .nav-links
+navbar
+  display flex
+  flex-direction column
+  flex-wrap nowrap
+  justify-content flex-start
+  align-items stretch
+  height 6rem
+  width 100%
+  .navbar
+    flex 0 1 auto
+    display flex
+    flex-direction row
+    flex-wrap nowrap
+    justify-content flex-start
+    align-items stretch
+    align-content flex-start
+    padding 1rem
+    background-color green
+    height 4rem
+    width 100%
     span
-      color white !important
+      flex 0 1 auto
+      display flex
+      flex-direction column
+      flex-wrap nowrap
+      justify-content center
+      align-content center
+      border-right 1px solid forestgreen
       font-size 1.6rem
+      padding 5px
+      text-align center
+      background-color limegreen
+      a
+        color yellow
+      a:link
+        text-decoration none
+      a:visited
+        text-decoration none
+      a:hover
+        color khaki
+        text-decoration underline
+      a:active
+        color white
+        text-decoration underline
+    span:last-of-type
+      border-right none
