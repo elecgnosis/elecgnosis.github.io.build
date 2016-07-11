@@ -7,8 +7,6 @@ navbar
   justify-content center
   align-items stretch
   height 4rem
-  width 100%
-  //padding 1rem
   background-color green
   .navbar
     flex 0 1 auto
@@ -20,7 +18,6 @@ navbar
     align-content flex-start
     background-color green
     height 4rem
-    //width 100%
     span
       flex 0 1 auto
       display flex
@@ -39,12 +36,15 @@ navbar
       a:visited
         text-decoration none
       a:hover
-        color khaki
-        text-decoration underline
+        text-decoration none
       a:active
         color white
-        text-decoration underline
+        text-decoration none
+    span:hover
+      background-color limegreen
+      color khaki
+      cursor pointer
+    span:hover:nth-child(1)
+      cursor default
     span:last-of-type
       border-right none
-    span.active
-      background-color limegreen
