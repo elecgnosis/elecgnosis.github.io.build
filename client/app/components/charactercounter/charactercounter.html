@@ -1,15 +1,12 @@
 <navbar></navbar>
-<header>
-  <h1>{{ $ctrl.name }}</h1>
-</header>
+<header></header>
 <main>
-  <div>
-    <div>
-      Character count: {{ characterInput.length }}
-    </div>
-    <div>
-      <input ng-model="characterInput" />
-      <button ng-click="characterInput = ''">Clear</button>
-    </div>
-  </div>
+  <h1>Character Counter</h1>
+  <p>
+    Character count: {{ characterInput.length }}
+  </p>
+  <p>
+    <input ng-model="characterInput" />
+    <button ng-click="characterInput = ''">Clear</button>
+  </p>
 </main>
