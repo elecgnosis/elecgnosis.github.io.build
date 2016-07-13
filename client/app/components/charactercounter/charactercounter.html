@@ -3,10 +3,12 @@
 <main>
   <h1>Character Counter</h1>
   <p>
-    Character count: {{ characterInput.length }}
-  </p>
-  <p>
-    <input ng-model="characterInput" />
-    <button ng-click="characterInput = ''">Clear</button>
+    <div>
+      <label for="character-input">Count: {{ characterInput.length }}</label>
+    </div>
+    <div>
+      <input ng-model="characterInput" ngChange="updateCharCount"/>
+      <button ng-click="characterInput = ''">Clear</button>
+    </div
   </p>
 </main>

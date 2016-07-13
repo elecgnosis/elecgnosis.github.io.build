@@ -3,5 +3,4 @@ class HeroController {
     this.name = 'hero';
   }
 }
-
 export default HeroController;
