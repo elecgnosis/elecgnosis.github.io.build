@@ -1,22 +1,27 @@
 <nav class="navbar">
-  <span class="profile-pic">
-    <img src="https://avatars2.githubusercontent.com/u/9951184?v=3&amp;s=460"
-      title="Daniel Lopez"
-      width="54"
-    />
-  </span>
-  <a class="mobile-menu-button">
-    <span>⋮</span>
-  </a>
-  <span class="menu-item-container">
-    <a>
-      <span ui-sref="home">Home</span>
+  <div class="nav-main">
+    <span class="profile-pic">
+      <img src="https://avatars2.githubusercontent.com/u/9951184?v=3&amp;s=460"
+        title="Daniel Lopez"
+        width="54"
+      />
+    </span>
+    <a ui-sref="home">
+      <span>Home</span>
     </a>
-    <a>
-      <span ui-sref="about">About Me</span>
+    <a ui-sref="about">
+      <span>About</span>
     </a>
-    <a>
-      <span ui-sref="charactercounter">Character Counter</span>
+    <a ng-click="$ctrl.toggleMenu()">
+      <span>Tools<span class="expand-icon">▼</span><span class="collapse-icon noshow">▲</span></span>
     </a>
-  </span>
+  </div>
+  <div class="menu-item-container noshow">
+      <a ui-sref="charactercounter">
+        <span>Character Counter</span>
+      </a>
+      <a>
+        <p></p>
+      </a>
+  </div>
 </nav>

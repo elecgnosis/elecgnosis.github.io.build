@@ -1,16 +1,19 @@
 var path    = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+//var urlLoader = require('url-loader');
 
 module.exports = {
   devtool: 'sourcemap',
   entry: {},
   module: {
     loaders: [
-       { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
-       { test: /\.html$/, loader: 'raw' },
-       { test: /\.styl$/, loader: 'style!css!stylus' },
-       { test: /\.css$/, loader: 'style!css' }
+      { test: /\.js$/, exclude: [/app\/lib/, /node_modules/], loader: 'ng-annotate!babel' },
+      { test: /\.html$/, loader: 'raw' },
+      { test: /\.styl$/, loader: 'style!css!stylus' },
+      { test: /\.css$/, loader: 'style!css' },
+      { test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
+      { test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: "file-loader" }
     ]
   },
   plugins: [

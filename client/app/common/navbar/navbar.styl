@@ -1,33 +1,56 @@
 @import '../common'
 
+.expand-icon.noshow, .collapse-icon.noshow
+  display none
+
 navbar
   display flex
   flex-direction column
   flex-wrap nowrap
   justify-content center
   align-items stretch
-  height 4rem
-  background-color green
-  .navbar
+  .nav-main
+    height 4rem
     flex 0 1 auto
     display flex
     flex-direction row
     flex-wrap nowrap
     justify-content space-between
     align-items stretch
-    align-content flex-start
+    align-content center
     background-color green
     height 4rem
     color yellow
-    > a, >span
+    > a
       flex 0 1 auto
       display flex
-      flex direction column
+      flex-direction column
       flex-wrap nowrap
       justify-content center
+      align-items stretch
       align-content center
-      padding 5px
+      border-right 1px solid forestgreen
+      color yellow
       font-size 1.6rem
+      &:active
+        color goldendrod
+      &:link
+        text-decoration none
+      &:visited
+        text-decoration none
+      &:hover
+        text-decoration none
+        background-color mediumseagreen
+        cursor pointer
+        color gold
+      span
+        flex 0 1 auto
+        padding 5px
+        padding-left none
+    > span:nth-child(1)
+      padding 5px
+    > span:last-of-type
+      border-right
     .profile-pic
       cursor default
     .mobile-menu-button
@@ -37,7 +60,7 @@ navbar
         font-size 3.2rem
         flex 0 1 auto
     .menu-item-container
-      display none
+      //display none
   @media screen and (min-width 768px)
     .mobile-menu-button
       display none
@@ -73,3 +96,32 @@ navbar
       cursor default
     span:last-of-type
       border-right none
+  .menu-item-container
+    z-index 100
+    position absolute
+    right 0
+    width auto
+    max-width 50%
+    display flex
+    flex-direction column
+    flex-wrap nowrap
+    justify-content
+    text-align right
+    background-color seagreen
+    &.noshow
+      display none
+    a
+      padding 5px
+      font-size 1rem
+      color yellow
+      &:active
+        color goldendrod
+      &:link
+        text-decoration none
+      &:visited
+        text-decoration none
+      &:hover
+        text-decoration none
+        background-color mediumseagreen
+        cursor pointer
+        color gold
